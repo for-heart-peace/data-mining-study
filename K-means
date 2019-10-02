@@ -2,7 +2,7 @@ from numpy import *
 import random
 from sklearn.datasets import load_iris
 from sklearn.preprocessing import MinMaxScaler
-
+import matplotlib.pyplot as plt
 def distEclud(vecA, vecB):  #定义一个欧式距离的函数  
     return sqrt(sum(power(vecA - vecB, 2)))
 
@@ -55,6 +55,25 @@ while(flag):
          # 取第一列等于cent的所有列
          ptsInClust = iris.data[nonzero(clusterAssment[:,0].A == i)[0]]
          center[i,:] = mean(ptsInClust, axis = 0)  # 算出这些数据的中心点
-         print(center);
+         #print(center);
                       
-          
+#print(clusterAssment)          
+
+
+
+#画散点图，第一维的数据作为x轴和第二维的数据作为y轴
+x_index=0
+y_index=1
+colors=['blue','red']
+for i in range(n_samples):
+    #print(int(clusterAssment[i,0]))
+    #print(clusterAssment[i,0])
+    color_index=int(clusterAssment[i,0])
+    plt.scatter(iris.data[i,0],
+                iris.data[i,1],
+                color=colors[color_index])
+
+plt.xlabel(iris.feature_names[x_index])
+plt.ylabel(iris.feature_names[y_index])
+plt.legend(loc='upper left')
+plt.show()
