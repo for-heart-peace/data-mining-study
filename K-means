@@ -1,1 +1,60 @@
+from numpy import *
+import random
+from sklearn.datasets import load_iris
+from sklearn.preprocessing import MinMaxScaler
 
+def distEclud(vecA, vecB):  #定义一个欧式距离的函数  
+    return sqrt(sum(power(vecA - vecB, 2)))
+
+#加载数据集
+iris=load_iris()
+iris.keys()
+
+#数据的条数和维数
+n_samples,n_features=iris.data.shape
+print("Number of sample:",n_samples)  #Number of sample: 150
+print("Number of feature",n_features)  #Number of feature 4
+#第一个样例
+print(iris.data[0])      #[ 5.1  3.5  1.4  0.2]
+print(iris.data.shape)    #(150, 4)
+print(iris.target.shape)  #(150,)
+#print(iris.target)
+
+#归一化
+mm = MinMaxScaler()
+iris.data=mm.fit_transform(iris.data)
+#kmeans 随机k个中心点
+k=2
+center= mat(zeros((k,n_features)))
+resultList=random.sample(range(1,n_samples),k)
+for i in range(k):
+        center[i]=iris.data[resultList[i]]#center是k个中心点的坐标
+
+flag=True
+# clusterAssment第一列存放该数据所属的中心点，第二列是该数据到中心点的距离
+clusterAssment = mat(zeros((n_samples,2)))
+#
+while(flag):
+    flag=False
+    #遍历所有样例
+    for i in range(n_samples):
+      mindis=inf
+      t=0
+      #遍历k个中心点
+      for j in range(k):
+          nowdis=distEclud(iris.data[i],center[j])
+          if mindis>nowdis :
+             mindis=nowdis
+             t=j
+      if t!=clusterAssment[i,0]:
+          flag=True#中心点会变，需要再次迭代
+
+      clusterAssment[i,:]=t,nowdis
+      #改变中心点的位置
+    for i in range(k):
+         # 取第一列等于cent的所有列
+         ptsInClust = iris.data[nonzero(clusterAssment[:,0].A == i)[0]]
+         center[i,:] = mean(ptsInClust, axis = 0)  # 算出这些数据的中心点
+         print(center);
+                      
+          
