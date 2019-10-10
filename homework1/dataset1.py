@@ -50,14 +50,14 @@ bench(AffinityPropagation(preference=-50),
 
 bench(MeanShift(bin_seeding=True),
               name="MeanShift", data=data)
-bench(SpectralClustering(eigen_solver='arpack',affinity="nearest_neighbors",n_clusters=3),
+bench(SpectralClustering(eigen_solver='arpack',affinity="nearest_neighbors",n_clusters=10),
              name="Spectral", data=data)
 
 bench(AgglomerativeClustering(linkage='ward',n_clusters=10),
               name="Ward", data=data)
 bench(DBSCAN(eps=3, min_samples=2),
               name="DBSCAN", data=data)
-bench(mixture.GaussianMixture(n_components=2, covariance_type='full'),
+bench(mixture.GaussianMixture(n_components=10, covariance_type='full'),
      name="Gaussian", data=data)
 print(82 * '_')
 
