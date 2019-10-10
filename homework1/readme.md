@@ -1,3 +1,10 @@
 # 聚类算法比较
 ## 在数据集digits上的比较
 ## 在数据集fetch_20newsgroups上的比较
+| init | time | NMI | Homogeneity | Completeness |
+| kmeans | 5.64s | 0.434 | 0.366 | 0.533 |
+| Affinity | 36.84s | 0.289 | 1.000 | 0.169 |
+| MeanShift | 2653.30s | 0.000 | 0.000 | 1.000|
+| Spectral | 2.59s | 0.666 | 0.656 | 0.677 |
+|Ward |58.62s | 0.556 | 0.517 | 0.601 |
+| DBSCAN | 0.50s | 0.282 | 0.564 | 0.188|
