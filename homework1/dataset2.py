@@ -173,7 +173,7 @@ bench(AffinityPropagation(preference=-50),
      name="Affinity", data=X)
 
 #-1
-bench(MeanShift(),
+bench(MeanShift(bin_seeding=True),
               name="MeanShift", data=X.toarray())
 
 bench(SpectralClustering(eigen_solver='arpack',affinity="nearest_neighbors",n_clusters=true_k),
