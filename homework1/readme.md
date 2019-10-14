@@ -22,6 +22,7 @@ DBSCAN
 GaussianMixture
 ---
 ### 由于Ward hierarchical clustering是AgglomerativeClustering方法的一种，我们实验中用AgglomerativeClustering(linkage='ward',n_clusters=true_k)表示两种方法
+---
 ## 实验结果
 ### 在数据集digits上的比较
 |  init| time | NMI |  Homogeneity| Completeness|
