@@ -1,9 +1,13 @@
 # Data Mining实验报告（一）
 ##### 曹令鑫
 ---
+
+
 ## **实验目的：**
 ### 测试scikitlearn聚类算法在sklearn.dataset.load_digits()和sklearn.dataset.fetch_20newsgroups两个数据集上的聚类效果，利用NMI、homogeneity（同质性）、completeness（完整性）三个评估系数对各种聚类方法进行评估。
 ---
+
+
 ## 聚类方法
 k-means++
 ---
@@ -21,8 +25,10 @@ DBSCAN
 ---
 GaussianMixture
 ---
-### 由于Ward hierarchical clustering是AgglomerativeClustering方法的一种，我们实验中用AgglomerativeClustering(linkage='ward',n_clusters=true_k)表示两种方法
+### 由于Ward hierarchical clustering是AgglomerativeClustering方法的一种，我们实验中用AgglomerativeClustering(linkage='ward',n_clusters=true_k)表示两种方法，在表格中用ward表示
 ---
+
+
 ## 实验结果
 ### 在数据集digits上的比较
 |  init| time | NMI |  Homogeneity| Completeness|
@@ -45,5 +51,8 @@ GaussianMixture
 | DBSCAN | 0.50s | 0.282 | 0.564 | 0.188|
 |Gaussian| 158.66s|	0.963|	0.959|	0.898|
 ---
+
+
+
 ## **结果分析：**
 ### 在以上两组数据中3个评估系数可以看出聚类效果最好的是Gaussian,最差的是Meanshift,但是Gaussian大的数据集聚类速度会明显降低，kmeans,Spectral,DBSCAN大的数据集的聚类还会保持较好的速度
