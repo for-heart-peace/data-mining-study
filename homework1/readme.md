@@ -43,6 +43,6 @@ GaussianMixture
 |Ward |58.62s | 0.556 | 0.517 | 0.601 |
 | DBSCAN | 0.50s | 0.282 | 0.564 | 0.188|
 |Gaussian| 158.66s|	0.963|	0.959|	0.898|
-
+---
 ## **结果分析：**
 ### 在以上两组数据中3个评估系数可以看出聚类效果最好的是Gaussian,最差的是Meanshift,但是Gaussian大的数据集聚类速度会明显降低，kmeans,Spectral,DBSCAN大的数据集的聚类还会保持较好的速度
